@@ -1,0 +1,364 @@
+/*
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ Make html and body full height 
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+}
+main{
+    flex: 1;
+    padding: 20px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+} 
+/* Flexbox layout on body */
+/*xrvmata kai fonts klp apla */
+/*sto navigation bar*/
+h3{
+    text-transform: uppercase;
+}
+table{
+    border: 2em black;
+    background-color: rgb(14, 126, 107);
+    padding: 1em;
+    margin: 2em 2em 2em 0em;
+    border-radius: 2em;
+    border-style:double;
+}
+/*bazv se kathe kefalida megala grammata kai allh gramatoseira*/
+th{
+    border: 2em black;
+    font-size: 130%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/*se kathe stoixeio tou pinaka alllh grammatoseira*/
+td{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding:6px ;
+}
+#navigationbar{
+    background-color: rgb(128, 96, 165);/*rvmatizv mov*/
+    padding: 1em;/*ligo keno panv apo tis epiloges*/
+    margin: 2em;/*liho keno metajy allvn stoixeivn*/
+    text-align: center;/*na pane sto kentro oi epiloges*/
+    
+
+    
+}
+/*gia kathe stoixeio*/
+#navigationbar li{
+    /*display: inline-block;/*to ena dipla apo to allo*/
+    padding: 10px;
+    font-size: large;/*megala grammata*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;/*dah*/
+    
+
+}
+/*gia ta stoixeia h4 kai h2*/
+h4{
+    font-size: 30px;/*toso megala*/
+    margin-left: 50%;/*apo ta aristera ligo keno*/
+    color: antiquewhite;/*xrvma mple*/
+    
+}
+h2{
+    color: rgb(117, 231, 168);/*xrvma kokkino*/
+}
+p,li{
+    color: rgb(117, 231, 168);/*xrvma*/
+    font-family: 'Times New Roman', Times, serif;/*typos gramatoseiras*/
+}
+
+
+section h2{
+    color: aliceblue; 
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+strong{
+    color: rgb(91, 210, 229);
+}
+
+label {
+   
+    margin-bottom: 5px;
+    font-weight: bold;
+    width:auto; /* me afto ephreazeis poso megalo tha einai to megethos ths grammhs oson grafontai san labels px hm gennhshs
+    an to mikrineis tote diplonei to hm gennhshs eno me auto ginetai oso h grammh*/
+   
+ 
+
+}
+input, select, textarea {
+    
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+   
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
+.headerhead img{ 
+    height: auto;
+    width: auto;
+}
+header{
+    /*grid-column: 1/4;/*thelv na piasei apo sthlh 1 evs 3 */
+    /*grid-row:1/2;/*mono thn prvth grammh*/
+    grid-area: header;
+    margin-bottom: 10em;
+
+    
+}
+/*to body tcn selidvn pou exoun koina thn eikona pou brisketai apo pisv */
+body{
+    display: grid;/*kanv to body grid gia na stoixisv to periexvmeno tou*/
+    /*grid-template-columns: 1fr 2fr  auto;/*xvriv se 3 sthles h mesaia megalhterh*/
+    /*grid-template-rows:  auto 2fr  auto;/*kai se 3 grammes*/
+    grid-template-areas: 
+    "header header header"
+    "content content side"
+    "footer footer footer";
+    /*background-image:url(bebrigth.jpg) ;/*eisagv eikona*/
+    background-color: #8c2b8c;
+    background-repeat: no-repeat;/*tou lev na einai mia enoiea*/
+    background-size:cover;/*na poianei olh thn selida*/
+    background-attachment: fixed;
+    z-index: -1;/*na mhn phgainei apo panv apo kanena */
+    margin: 0 auto;/*den thekv keno apo panv h katv*/
+    height: 100%;
+    min-height: 100vh;/*gia na mhn afhnei keno katv apo  to body*/
+    
+}
+/*edv exv epishs to fouter pou einai koino se oles tis selides*/
+footer{
+    /*grid-column: 1/4;
+    grid-row: 3/4;*/
+    grid-area: footer;
+    background-color: grey;/*bazv kafe xrvma jekathara grey*/
+   /* margin-bottom: 0;/*apo katv kanena keno*/
+    margin-top: 30em;/*apo panv ligo keno*/
+    /*display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+*/
+    
+    
+/*auta pou tha einai mesa sto footer thelv na exoun ayth thn morfh*/
+    display: grid;
+    grid-template-areas:
+     "header header header"
+     "left  mid   right" 
+    
+
+
+}
+/*thelo to antoistixo kommati tou footer na mpei sto antisoixo grid kommati*/
+.mid{
+    grid-area: header;
+}
+.left{
+    grid-area: left;
+}
+.mid{
+    grid-area: mid;
+}
+.right{
+    grid-area: right;
+}
+
+main{
+    /*grid-column: 1/3;/*to main tha piasei apo thn prvth sthlh mexrh thn deuterh*/
+    /*grid-row: 2/3;/*kai thn mesaia grammh */
+    grid-area: content;
+    padding: 20px;
+}
+
+/*gia thn lista me tis epiloges */
+#navigationbar ul{
+    display: flex;/*to navigation bar thelv na ginei flex kai to direction se rows euthia dhladh kai na mhn kanei rap*/
+    flex-flow: row nowrap;
+    justify-content: center;/*na pane sto kentro ston ajona x*/
+    align-items: center;/*na pane sto kentro ston ajona y*/
+    list-style-type: none;/*oxi boules*/
+
+}
+
+
+.container-categories{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+}
+.container-categories>*{
+    margin: 10px;
+}
+#kalathi{
+    float: right;
+}
+
+
+/*media queries*/
+
+@media(max-width: 1200px){
+    body{
+        display: grid;
+        gap: 20px;
+        grid-template-columns: none;
+        grid-template-rows: none;
+        grid-template-areas: 
+        "header header"
+        "content content"
+        "side side"
+        "footer footer";
+          
+       }
+    header{
+        /*grid-column: 1/2;*/
+        grid-area: header;
+   }
+
+   main{
+    /*grid-column: 1/2;*/
+    grid-area: content;
+   }
+   aside{
+
+    /*grid-column: 1/2;
+    grid-row: 3/4;*/
+    grid-area: side;
+   }
+   footer{
+        /*grid-column: 1/2;
+        grid-row: 4/5;*/
+        grid-area: footer;
+        max-width: 100%;
+        
+        
+   }
+   body>*{
+    max-width: 100%;
+   }
+   /*.NEWRELEASES>ul{
+    flex-direction:column;
+   }*/
+}
+@media (max-width: 708px) {
+   body{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: none;
+    grid-template-rows: none;
+    grid-template-areas: 
+    "header"
+    "content"
+    "side"
+    "footer";
+      
+   }
+   
+   form{
+    flex-direction: column;
+   }
+   header{
+        /*grid-column: 1/2;*/
+        grid-area: header;
+   }
+
+   main{
+    /*grid-column: 1/2;*/
+    grid-area: content;
+   }
+   aside{
+
+    /*grid-column: 1/2;
+    grid-row: 3/4;*/
+    grid-area: side;
+   }
+   footer{
+        /*grid-column: 1/2;
+        grid-row: 4/5;*/
+        grid-area: footer;
+        max-width: 100%;
+        grid-template-areas: 
+        "header header header"
+        "left left mid"
+        "right right mid"
+        ;
+        
+   }
+   body>*{
+    max-width: 100%;
+   }
+    .container{
+        flex-direction: column;
+    }
+    .books-videos{
+        flex-direction: column;
+    }
+    #navigationbar ul{
+        flex-direction: column;
+    }
+    .eisagvghLecture{
+        flex-direction: column;
+    }
+    
+    
+  }
+@media(width<800px){
+    .NEWRELEASES>ul{
+        flex-direction:column;
+       }
+}
+@media(width<1270px){
+    .container-categories{
+        grid-template-areas: 
+        "left-top"
+        "right-top"
+        "left-bot"
+        "right-bot";
+    }
+}
+* {
+    box-sizing: border-box;
+  }

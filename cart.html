@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEBRIGTH</title>
+
+    <!-- React and Babel for JSX support -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Link to external stylesheets -->
+    <link rel="stylesheet" href="erg2.css" />
+    <script src="cart.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Wait until the page is fully loaded before executing
+        window.onload = async () => {
+            // Wait for the cart items to be fetched
+            const cartitems= await fetchCartItems();
+
+            // After fetching, render the React component
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(<App cartitems={cartitems.agores} totalcost={cartitems.totalcost}/>);
+        };
+
+        // React Components
+        function App({ cartitems,totalcost  }) {
+            return (
+                <>
+                    <SiteHeader />
+                    <main>
+                        <SiteItems items={cartitems} totalcost={totalcost} />
+                    </main>
+                    <SiteFooter />
+                </>
+            );
+        }
+
+        function SiteHeader() {
+            return (
+                <header>
+                    <nav id="navigationbar">
+                        <ul>
+                            <li><a href="index.html">HOME- index</a></li>
+                            <li><a href="categories.html">CATEGORIES</a></li>
+                            <li><a href="python.html">SUBCATEGORIES Python</a></li>
+                            <li><a href="cybersecurity.html">SUBCATEGORIES Cybersecurity</a></li>
+                            <li><a href="lecture.html">LECTURES</a></li>
+                            <li><a href="book.html">BOOKS</a></li>
+                            <li><a href="poioieimaste.html">INFO - Ποιοι είμαστε</a></li>
+                            <li><a href="forma.html">FORMA-BIBLIVN</a></li>
+                        </ul>
+                    </nav>
+                </header>
+            );
+        }
+
+        function SiteFooter() {
+            return (
+                <footer>
+                    <h4>ΕΠΙΚΟΙΝΩΝΙΑ</h4>
+                    <div className="left">
+                        <ul>
+                            <li>ΓΕΩΡΓΙΟΣ ΝΟΥΛΗΣ P3210140@aueb.gr</li>
+                            <li>ΝΙΚΟΛΑΟΣ ΚΑΤΣΑΡΟΣ P3210069@aueb.gr</li>
+                        </ul>
+                    </div>
+                    <div className="mid">
+                        NIkos and George copyright 2024
+                    </div>
+                </footer>
+            );
+        }
+
+        function SiteItems({ items,totalcost }) {
+            console.log("Items received:", items);    
+            return (
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TITLE</th>
+                                <th>TYPE</th>
+                                <th>COST</th>
+                                <th>REMOVE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {items.map((item) => (
+                                <Item
+                                    key={item.id}
+                                    title={item.title}
+                                    type={item.type}
+                                    cost={item.cost}
+                                    id={item.id}
+
+                                />
+                            ))}
+                            <tr>
+                                <td>
+                                    TotalCost:
+                                </td>
+                                <td id="totalcost">
+                                    {totalcost}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                );
+            }
+
+        function Item({id, type, title, cost }) {
+            const [removed,setRemoved]=React.useState(false);
+            if(removed) return null
+            function handleDelete(){
+                setRemoved(true);
+                remove(id);
+            }
+            return (
+                <tr>
+                    <td>{title}</td>
+                    <td>{type}</td>
+                    <td>{cost}</td>
+                    <td><button onClick={handleDelete} className="remove" value={id}><img src="bin.jpg" alt="bin" width="30px"/></button></td>
+                </tr>
+            );
+        }
+
+    </script>
+</body>
+
+</html>

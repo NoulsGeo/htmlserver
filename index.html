@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>BEBRIGTH</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" >
+        <link rel="stylesheet" href="erg2.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <script src="tikanoume.js"></script>
+            <nav id="navigationbar">
+               <ul>
+               <li><a  href="index.html"  onclick="showSection('home')">HOME- index</a></li>
+               <li><a  href="categories.html"  onclick="showSection('categories')">CATEGORIES</a></li>
+               <li><a  href="python.html"  onclick="showSection('categories')">SUBCATEGORIES Python</a></li>
+               <li><a  href="cybersecurity.html"  onclick="showSection('categories')">SUBCATEGORIES Cybersecurity</a></li>
+               <li><a href="lecture.html" onclick="showSection('home')">LECTURES</a></li>
+               <li><a href="book.html" onclick="showSection('home')">BOOKS</a></li>
+               <li><a href="poioieimaste.html" onclick="showSection('home')">INFO - Ποιοι είμαστε</a></li>
+               <li><a href="forma.html">FORMA-BIBLIVN</a></li>
+            </ul>
+           
+        </nav>
+        </header>
+        <!--edv tvra ayto pou ekana einai oti gia kathe kathgoria
+        ekana ena ksexvristo section kai mesa se kathe section ekana tis upokathgories opoy me detail
+        ama thelei o xrhsths mporei meta na tis dei-->
+        <main>
+        <!--to#each psaxto einai san for gia thn html//epishs sto src bazeis thn dieuthunsh tou server giati ta images einai statika ekei-->
+        <script id="category-template" type="text/x-handlebars-template">
+        <div class="container-categories">
+            {{#each categoriesWithSubcategories}}
+            <div class="categories">
+                <h2>{{name}}</h2>
+                <a href="category.html?value={{id}}"><img src="https://learning-hub-1whk.onrender.com/{{image}}" alt="κατηγορια εικονασ"></a>
+                <ul class="categoriessubs">
+                    {{#each subcategories}}
+                    <li><a href="subcategory.html?value={{id}}"> {{name}}</a></li>
+                    {{/each}}
+                </ul>
+
+            </div>
+            {{/each}}
+            
+        </div>
+    </script>
+    <div id="content"></div>
+        </main>
+        
+        <!--edv einai to uposelido to telytaio kathe selidaw dld-->
+        <footer>
+            <h4>ΕΠΙΚΟΙΝΩΝΙΑ</h4>
+            <div class="left">
+                
+                    <ul>
+                        <li>ΓΕΩΡΓΙΟΣ ΝΟΥΛΗΣ P3210140@aueb.gr</li>
+                        <li>ΝΙΚΟΛΑΟΣ ΚΑΤΣΑΡΟΣ P3210069@aueb.gr</li>
+                    </ul>
+            </div>
+            <div class="mid">
+                
+                NIkos and George copyright 2024
+            </div>
+            <div class="right">
+                
+            </div>
+        </footer>
+    </body>
+</html>
